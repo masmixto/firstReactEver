@@ -12,6 +12,13 @@ class App extends Component {
     };
   }
 
+  removeIt(index) {
+    //let {list} = this.state;
+    let list = this.state.list;
+    list.splice(index, 1);
+    this.setState({list});
+  }
+
   onChange(e){
       e.preventDefault();
       this.setState({ actualElement: e.target.value});
@@ -32,7 +39,7 @@ class App extends Component {
           <input placeholder={this.state.placeholder} onChange={this.onChange.bind(this)} />
           <input type="submit" />
         </form>
-       <Table items={this.state.list}/>
+       <Table removeIt={this.removeIt.bind(this) } items={this.state.list} />
       </div>
     );
   }

@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 // import './App.css';
 
 class Table extends Component {
-  removeIt(e){
-  // var parentElement = e.target.parentNode;
-
-  }
-
   render() {
     return (
       <table>
@@ -17,9 +12,9 @@ class Table extends Component {
           </tr>
           {
             this.props.items.map((item, index) =>
-              <tr style={this.state.display} key={index}>
+              <tr key={index}>
                 <td>{item}</td>
-                <td val={index} onClick={this.removeIt.bind(this)}>Trash</td>
+                <td val={index}><button onClick={()=>{this.props.removeIt(index)}}>Trash</button></td>
               </tr>)
           }
           </tbody>
